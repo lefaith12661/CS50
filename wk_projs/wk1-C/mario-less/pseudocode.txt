@@ -1,0 +1,6 @@
+ask user to choose integer between 1-8 for the height of the pyramid
+if user inputs integer between 1-8
+    print the pyramid
+else user inputs anything that is not between 1-8 or not an integer
+    continue to ask the user until we get an integer between 1-8 (go back to line 1)
+
