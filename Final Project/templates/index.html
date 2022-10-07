@@ -1,4 +1,12 @@
-{% extends '../templates/base.html' %}
+{% extends "../templates/base.html" %}
+
+{% block title %} 
+    Home
+{% endblock %}
+
+{% block css %} 
+<link href="../css/style_index.css" rel="stylesheet"> 
+{% endblock %}
 
 {% block content %}
 <div class="main__content">
@@ -8,4 +16,4 @@
     <p class="main__content_p1">"It's not your <b>salary</b> that makes you <b>rich</b>, it's your <b>spending habits</b>." - Charles A Jaffe</p>
 </div>
 <div class="main__img--container"><img src="../images/pic1.svg" alt="pic" id="main__img"></div>
-{% endblock content %}
+{% endblock %}
