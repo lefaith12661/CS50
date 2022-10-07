@@ -119,7 +119,7 @@
         margin: 0;
         width: 100%;
         position: absolute;
-        top: -1000px;
+        bottom: 1000px;
         opacity: 0;
         transform: all 500ms ease;
         height: 50vh;
@@ -200,7 +200,7 @@
 
 /* main page */
 .main {
-    background-color: black;
+    background-color: white;
 }
 
 .main__container {
@@ -208,17 +208,19 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-self: center;
-    margin: 0 auto;
-    height: 91vh;
-    background-color: black;
+    margin: auto;
+    height: 90vh;
+    background-color: white;
     z-index: 1;
     width: 100%;
-    max-width: 1300px;
+    max-width:600px;
     padding: 0 50px;
 }
 
 .main__content_h1 {
-    font-size: 4rem;
+    height: 10vh;
+    margin-bottom: 300px;
+    font-size: 2.5rem;
     background-image: linear-gradient(to top, #02560C 0%, #06A039 100%);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -227,49 +229,74 @@
     -moz-text-fill-color: transparent;
 }
 
-.main__content_h2 {
-    font-size: 2rem;
-    color: white;
-}
-
-.main__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    height: 100%;
-    width: 57%;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background: #0AC746;
-    color: #fff;
-}
-
-.main__button:hover {
-    background: #FF6B8B;
-    transition: all 300ms ease;
+.main__content_h3 {
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 290px;
 }
 
 .main__content_p1 {
-    color: #fff;
-    margin-top: 10rem;
-    font-size: 1.33rem;
+    font-size: 1.5rem;
+    color: black;
 }
 
-.main__img--container {
+#amount {
+    margin-top: 1rem;
+}
+
+#add {
+    cursor: pointer;
+    position: relative;
+    bottom: 290px;
+}
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    bottom: 300px;
+    background-color: #fcc9c9;
+  }
+
+  #table td, #table th {
     text-align: center;
+    padding: 5px;
+  }
+
+#dataTable {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    bottom: 300px;
+}
+    #dataTable td, #dataTable th {
+    border: 3px solid #dddddd;
+    text-align: center;
+    padding: 4px;
+  }
+
+.summary {
+    position: relative;
+    bottom: 290px;
+}
+#myTable {
+    margin-top: 10px;
+    position: relative;
+    bottom: 300px;
 }
 
-#main__img {
-    height: 80%;
-    width: 80%;
+.ttl {
+    position: relative;
+    bottom: 280px;
+    left: 530px;
 }
 
+#total {
+    color: red;
+}
 
 /* mobile,tablet responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
     .main__container {
         display: grid;
         grid-template-columns: auto;
@@ -282,58 +309,75 @@
 
     .main__content {
         text-align: center;
-        margin-bottom: 1rem;
     }
 
     .main__content_h1 {
-        font-size: 2.5rem;
-        margin-top: 1rem;
-    }
-
-    .main__content_h2 {
-        font-size: 3rem;
-    }
-
-    .main__button {
-        margin: 2rem 0;
-        width: 100%;
+        font-size: 2rem;
     }
 
     .main__content_p {
-        margin-top: 1rem;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
+
+    table { 
+        table-layout: fixed;
+        width: 100%;
+    }
+        tr {
+            font-size: x-small;
+        }
+
+    #date, #category, #description, #amount {
+        width: 90%;
+    }
+
+    #description {
+        margin-top: 10px;
+    }
+
+    .ttl {
+        position: relative;
+        bottom: 280px;
+        left: 165px;
+    }
+
 }    
 
-@media screen and (max-width: 480px) {
-    .main__container {
-        display: grid;
-        grid-template-columns: auto;
-        align-items: center;
-        justify-self: center;
-        width: 100%;
-        margin: 0 auto;
-        height: 91vh;
-    }
-    
+@media screen and (max-width: 500px) {
     .main__content_h1 {
-        font-size: 2.7rem;
-        margin-top: 2rem;
+        font-size: 2rem;
     }
 
     .main__content_h2 {
         font-size: 1.8rem;
     }
 
-    .main__button {
-        padding: 10px 20px;
-        margin: 3rem 0;
-    }
-
     .main__content_p {
         font-size: 1rem;
     }
 
+    table { 
+        table-layout: fixed;
+        width: 100%;
+    }
+        tr {
+            font-size: x-small;
+        }
+
+    #date, #category, #description, #amount {
+        width: 90%;
+    }
+
+    #description {
+        margin-bottom: 10px;
+    }
+
+    .ttl {
+        position: relative;
+        bottom: 280px;
+        left: 160px;
+    }
+    
 }
 
 

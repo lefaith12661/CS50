@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+    <script src="https://kit.fontawesome.com/00a82f435b.js" crossorigin="anonymous"></script>
+    <link href="../css/style_calculate.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- javascript -->
+    <script>
+        // run script once DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const menu = document.querySelector('#mobile-menu');
+            const menuLinks = document.querySelector('.navbar__menu');
+
+            // when menu is clicked,  
+            menu.addEventListener('click', function() {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="../templates/index.html" id="navbar__logo"> 
+                <i class="fa-sharp fa-solid fa-dollar-sign"></i><b>&nbsp;Review</b>
+            </a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item"><a href="../templates/index.html" class="navbar__links">Home</a></li>
+                <li class="navbar__item"><a href="../templates/budget.html" class="navbar__links">Budget</a></li>
+                <li class="navbar__button"><a href="../templates/calculate.html" class="button">Calculate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- main page -->
+    <div class="main">
+        <div class="main__container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>            
+</body>
+</html>

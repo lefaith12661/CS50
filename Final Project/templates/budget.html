@@ -1,20 +1,53 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget</title>
     <link rel="stylesheet" href="../css/style_budget.css">
     <script src="https://kit.fontawesome.com/00a82f435b.js" crossorigin="anonymous"></script>
+
+    <!-- javascript -->
+    <script>
+        // run script once DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const menu = document.querySelector('#mobile-menu')
+            const menuLinks = document.querySelector('.navbar__menu')
+
+            // when menu is clicked,  
+            menu.addEventListener('click', function() {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+            });
+        });
+
+        // sum budget amounts
+        function Total(){
+            var arr = document.getElementsByName('amount');
+            var ttl = 0;
+            for(var i=0;i<arr.length;i++){
+                if(parseInt(arr[i].value))
+                    ttl += parseInt(arr[i].value);
+            }
+            document.getElementById('total_amount').value = ttl;
+        } 
+
+    </script>
+
 </head>
+
 <body>
+
     <!-- navigation bar -->
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="templates/index.html" id="navbar__logo"> 
+            <a href="../templates/index.html" id="navbar__logo"> 
                 <i class="fa-sharp fa-solid fa-dollar-sign"></i><b>&nbsp;Review</b>
-                
             </a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -22,21 +55,9 @@
                 <span class="bar"></span>
             </div>
             <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="../templates/index.html" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="../templates/budget.html" class="navbar__links">Budget</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="../templates/input.html" class="navbar__links">Input</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="../templates/history.html" class="navbar__links">History</a>
-                </li>
-                <li class="navbar__button">
-                    <a href="/" class="button">Sign In</a>
-                </li>
+                <li class="navbar__item"><a href="../templates/index.html" class="navbar__links">Home</a></li>
+                <li class="navbar__item"><a href="../templates/budget.html" class="navbar__links">Budget</a></li>
+                <li class="navbar__button"><a href="../templates/calculate.html" class="button">Calculate</a></li>
             </ul>
         </div>
     </nav>
@@ -45,13 +66,46 @@
     <div class="main">
         <div class="main__container">
             <div class="main__content">
-                <h1 class="main__content_h1">Weekly Budget Goals</h1>
-                <p class="main__content_p1">"It's not your <b>salary</b> that makes you <b>rich</b>, it's your <b>spending habits</b>." - Charles A Jaffe</p>
+                <h1 class="main__content_h1">Weekly Budget Calculator </h1>
+                <p class="main__content_p1">
+                    <table>
+                        <tr>
+                            <th>ACTIVITY</th>
+                            <th>BUDGET</th>
+                        </tr>
+                        <tr>
+                            <td>Grocery</td>
+                            <td>$ <input onblur="Total()" type="number" name="amount" min="1" data-autosave-url="http://localhost:3000/save-profile" required /><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Eating Out</td>
+                            <td>$ <input onblur="Total()" type="number" name="amount" min="1" data-autosave-url="http://localhost:3000/save-profile" required /><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment</td>
+                            <td>$ <input onblur="Total()" type="number" name="amount" min="1" data-autosave-url="http://localhost:3000/save-profile" required /><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Pet Supply</td>
+                            <td>$ <input onblur="Total()" type="number" name="amount" min="1" data-autosave-url="http://localhost:3000/save-profile" required /><br/></td>
+                        </tr>
+                        <tr>
+                            <td>Other</td>
+                            <td>$ <input onblur="Total()" type="number" name="amount" min="1" data-autosave-url="http://localhost:3000/save-profile" required /><br/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Weekly Total:</b></td>
+                            <td>$ <input type="number" id="total_amount" readonly></td>
+                        </tr>
+                    </table>
+                </p>
             </div>
             <div class="main__img--container">
                 <img src="../images/pic2.svg" alt="pic" id="main__img">   
             </div>
         </div>
     </div>
+
 </body>
+
 </html>
