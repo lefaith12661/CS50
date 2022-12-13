@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Summary
+{% endblock %}
+
+{% block css %}
+<link href="static/style_home.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr><th>TOTAL Weekly Budget:</th></tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr><td class="bg-success text-white">${{ user["wkly_ttl"] }}.00</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr><th>TOTAL Spendings:</th></tr>
+    </thead>
+    <tbody>
+        {% for sum_all in sum_all %}
+        <tr><td class="bg-warning text-dark">${{ sum_all["sum_amount"] }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for spending in spendings %}
+        <tr>
+            <td>{{ spending["date"] }}</td>
+            <td>{{ spending["category"] }}</td>
+            <td>{{ spending["description"] }}</td>
+            <td>{{ spending["amount"] }}</td>
+            <td>
+                <form action="/remove" method="post">
+                    <input name="id" type="hidden" value="{{ spending.id }}">
+                    <input type="submit" value="Remove">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

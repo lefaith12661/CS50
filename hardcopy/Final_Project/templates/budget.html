@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Budget
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="static/style_budget.css">
+{% endblock %}
+
+{% block one %}
+<script>
+
+    function Total(){
+            var arr = document.getElementsByName('amount');
+            var ttl = 0;
+            for(var i=0;i<arr.length;i++){
+                if(parseFloat(arr[i].value))
+                    ttl += parseFloat(arr[i].value);
+            }
+            document.getElementById('total_amount').value = ttl;
+        }
+
+    // run script once DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        var nameNode = document.getElementById("done");
+        nameNode.addEventListener("click", function() {
+        alert("Your Weekly Total has been saved to Summary Page")
+        });
+    });
+    
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main_container">
+        <div class="main_content">
+            <h1><b>Budget Calculator</b></h1>
+            <form action="/budget" method="post">
+            <table>
+                <tr>
+                    <th>ACTIVITY</th>
+                    <th>BUDGET</th>
+                </tr>
+                <tr>
+                    <td>Grocery</td>
+                    <td>$ <input onblur="Total()" type="number" name="amount" required></td>
+                </tr>
+                <tr>
+                    <td>Eating Out</td>
+                    <td>$ <input onblur="Total()" type="number" name="amount" required></td>
+                </tr>
+                <tr>
+                    <td>Entertainment</td>
+                    <td>$ <input onblur="Total()" type="number" name="amount" required></td>
+                </tr>
+                <tr>
+                    <td>Pet Supply</td>
+                    <td>$ <input onblur="Total()" type="number" name="amount" required></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td>$ <input onblur="Total()" type="number" name="amount" required></td>
+                </tr>
+                <tr>
+                    <td><b>Weekly Total:</b></td>
+                    <td>$ <input type="number" name="total_amount" id="total_amount" readonly>
+                        <input id="done" type="submit" value="Done">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+        <div class="main_img--container">
+            <img src="static/pic2.svg" alt="pic" id="main_img">
+        </div>
+    </div>
+</div>
+{% endblock %}

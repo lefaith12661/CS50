@@ -1,0 +1,43 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Sort1 ran faster than sort3 only when the text file is sorted. This indicates to me that it's bubble sort omega(n).
+
+sort2 uses: Merge Sort
+
+How do you know?: Sort2 was always the fastest when I tested the different text files. It has to be merge sort because merge sort is O(n log n) and omega(n log n), which means it is faster than the other sorts.
+
+sort3 uses: Selection Sort
+
+How do you know?: Sort3 takes similar time to sort for the different text files. This makes it selection sort since it must go through all elements regardless of it being sorted or not.
+
+
+
+random5000               random10000
+sort 1:
+real    0m0.095s        real    0m0.294s
+user    0m0.059s        user    0m0.240s
+sys     0m0.020s        sys     0m0.039s
+sort 2:
+real    0m0.043s        real    0m0.051s
+user    0m0.014s        user    0m0.004s
+sys     0m0.009s        sys     0m0.030s
+sort 3:
+real    0m0.072s        real    0m0.159s
+user    0m0.028s        user    0m0.096s
+sys     0m0.023s        sys     0m0.041s
+
+reversed50000           sorted50000             sort5000
+sort 1:
+real    0m5.984s        real    0m1.074s        real    0m0.022s
+user    0m5.002s        user    0m0.024s        user    0m0.005s
+sys     0m0.145s        sys     0m0.165s        sys     0m0.013s
+sort 2:
+real    0m0.596s        real    0m0.957s        real    0m0.036s
+user    0m0.039s        user    0m0.025s        user    0m0.000s
+sys     0m0.117s        sys     0m0.139s        sys     0m0.016s
+sort 3:
+real    0m3.290s        real    0m3.756s        real    0m0.065s
+user    0m2.664s        user    0m2.601s        user    0m0.025s
+sys     0m0.179s        sys     0m0.212s        sys     0m0.023s
+
+

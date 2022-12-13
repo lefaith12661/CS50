@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calculate
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="static/style_calc.css">
+{% endblock %}
+
+{% block one %}
+<script>
+    // run script once DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        var nameNode = document.getElementById("add_amt");
+        nameNode.addEventListener("click", function() {
+        alert("Your item has been added to Summary Page")
+        });
+
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main_container">
+        <div class="main_content">
+            <h1><b>Calculate Weekly Spendings</b></h1>
+            <h3>Add your spendings below:</h3>
+            <form action="/calculate" method="post">
+            <table class="input">
+                <tr>
+                    <th>DATE</th>
+                    <th>CATEGORY</th>
+                    <th>DESCRIPTION</th>
+                    <th>AMOUNT ($)</th>
+                </tr>
+                <tr>
+                    <td><input type="date" id="date" name="date" required></td>
+                    <td>
+                    <select id="category" name="category" required>
+                        <option value="Category" disable selected>category</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Eating Out">Eating Out</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Pet Supply">Pet Supply</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </td>
+                    <td><input type="text" id="description" name="description" required></td>
+                    <td><input type="quantity" id="amount" name="amount" min="1" required></td>
+                    <td><input id="add_amt" type="submit" value="Add"></td>
+                </tr>
+            </table>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Total Grocery</th>
+                    {% for grocery_ttl in grocery_ttl %}
+                    <td>${{ grocery_ttl["sum_gro"] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th>Total Eating Out</th>
+                    {% for eating_out_ttl in eating_out_ttl %}
+                    <td>${{ eating_out_ttl["sum_eat"] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th>Total Entertainment</th>
+                    {% for entertainment_ttl in entertainment_ttl %}
+                    <td>${{ entertainment_ttl["sum_ent"] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th>Total Pet Supply</th>
+                    {% for pet_supply_ttl in pet_supply_ttl %}
+                    <td>${{ pet_supply_ttl["sum_pet"] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th>Total Other</th>
+                    {% for other_ttl in other_ttl %}
+                    <td>${{ other_ttl["sum_oth"] }}</td>
+                    {% endfor %}
+            </table>
+            </form>
+        </div>
+        <div class="main_img--container">
+            <img src="static/pic4.svg" alt="pic" id="main_img">
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block css %}
+<link href="static/style_home.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main_container">
+        <div class="main_content">
+            <h1><b>Weekly Spending Review</b></h1>
+            <li class="main_button"><a href="/calculate">Calculate</a></li>
+            <p>"It's not your <b>salary</b> that makes you <b>rich</b>, it's your <b>spending habits</b>." - Charles A Jaffe</p>
+        </div>
+        <div class="main_img--container"><img src="static/pic1.svg" alt="pic" id="main_img"></div>
+    </div>
+</div>
+{% endblock %}
